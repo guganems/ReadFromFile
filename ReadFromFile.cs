@@ -115,7 +115,7 @@ public class ReadFromFile
         //საბოლოო სახით PRE!!!
         for (int k=0; k<completeLength-(junkWord); k++)
         {
-            result[k] = result[k] + "\t" + vowels[k] + "\t" + consonants[k] + "\t" + length[k];
+            result[k] = "NULL\t" + result[k] + "\t" + vowels[k] + "\t" + consonants[k] + "\t" + length[k];
         }
         System.IO.File.WriteAllLines(@"C:\Users\nemst\Desktop\guga1.txt", result);
         System.Console.WriteLine("Contents of WriteLines2.txt = ");

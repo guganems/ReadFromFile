@@ -47,9 +47,10 @@ public class ReadFromFile
                     || complete[k][l] == '4' || complete[k][l] == '5' || complete[k][l] == '6' || complete[k][l] == '7'
                     || complete[k][l]=='8' || complete[k][l]=='9' || complete[k][l]=='„' || complete[k][l]=='“'
                     || complete[k][l]==';' || complete[k][l]==':' || complete[k][l]=='\t' || complete[k][l]=='\n'
-                    || complete[k][l] == '\"' || complete[k][l] == '#')
+                    || complete[k][l] == '\"' || complete[k][l] == '#' || complete[k][l] == '('
+                    || complete[k][l] == ')') 
                 {
-                    continue;
+                    break;
                 }
                 else
                 {
@@ -65,14 +66,12 @@ public class ReadFromFile
         //გამეორებული სიტყვების წაშლა
         //ERROR!!!
         result.Sort();
-        int oddWord = 0;
         for (int k = 0; k < result.Count-1; k++)
         {
             if (result[k] == result[k + 1])
             {
-                //result.ForEach(Console.WriteLine);
-                oddWord++;
                 result.RemoveAt(k);
+                k--;
             }
         }
         //სიგრძეების გამოთვლა
@@ -118,7 +117,7 @@ public class ReadFromFile
         {
             result[k] = result[k] + "\t" + vowels[k] + "\t" + consonants[k] + "\t" + length[k];
         }
-        System.IO.File.WriteAllLines(@"C:\Users\nemst\Desktop\guga1.txt", complete);
+        System.IO.File.WriteAllLines(@"C:\Users\nemst\Desktop\guga1.txt", result);
         System.Console.WriteLine("Contents of WriteLines2.txt = ");
         Console.ReadKey();
     }

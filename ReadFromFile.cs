@@ -33,20 +33,7 @@ public class ReadFromFile
         List<String> result = new List<string>(); //საბოლოო მასივი
         int notAWord = 0;
         int isINT = 0;
-        //ცარიელი ხაზების მოშორება
-        for(int k=0; k<completeLength; k++)
-        {
-            int wordLengthInThisScope = complete[k].Length;
-            if (wordLengthInThisScope == 0)
-            {
-                junkWord++;
-                continue;
-            }
-            else
-            {
-                complete[k - junkWord] = complete[k];
-            }
-        }
+
         //ზედმეტი ასო-ნიშნების მოშორება
         for(int k=0; k<completeLength-junkWord; k++)
         {
@@ -72,6 +59,9 @@ public class ReadFromFile
             result.Add(tempWord);
             tempWord = "";
         }
+
+        //TODO: Remove blank spaces, baby..
+
         //გამეორებული სიტყვების წაშლა
         //ERROR!!!
         result.Sort();
